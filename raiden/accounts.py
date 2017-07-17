@@ -73,7 +73,7 @@ class AccountManager(object):
         if address is not None and address.startswith('0x'):
             address = address[2:]
 
-        return address.lower() in self.accounts
+        return address is not None and address.lower() in self.accounts
 
     def get_privkey(self, address, password=None):
         """Find the keystore file for an account, unlock it and get the private key
